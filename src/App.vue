@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-4xl mx-auto p-4">
-    <h1 class="text-3xl font-bold mb-6 text-center">Proyecto Mini Juegos</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center mt-6">Proyecto Mini-Juegos</h1>
     
     <div class="flex gap-4 mb-6 justify-center">
       <button 

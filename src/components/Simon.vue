@@ -2,7 +2,7 @@
 
     <div class="max-w-lg mx-auto">
 
-        <!-- Panel para mostrar el progreso -->
+        <!-- Zona para mostrar el progreso -->
 
         <div class="text-center mb-4">
             <h2 class="text-2xl font-bold">Nivel: {{ nivel }}</h2>
@@ -13,13 +13,13 @@
 
         <div class="grid grid-cols-3 gap-4 mb-4">
 
-            <!-- Botones de colores mapeados segun el indice -->
+            <!-- Botones de colores generados segun el indice -->
 
             <button v-for="(color, indice) in colores" :key="indice" :class="[
                 'h-24 rounded-lg transition-opacity transition-transform',
                 color.clase,
 
-                // Maneja el botón activo mediante opacidad
+                // Maneja el botón activo usando la opacidad
 
                 { 'opacity-100 shadow-lg': colorActivo === indice, 'opacity-65': colorActivo !== indice }
             ]" @click="manejarClickJugador(indice)" :disabled="!turnoJugador || enJuego">
@@ -41,19 +41,11 @@ export default {
     data() {
         return {
 
-            // Array de colores disponibles, esto define la cantidad de botones en el mapeo del template
+            // Array de colores, esto define la cantidad de botones en el .map del template
 
             colores: [
-                { clase: 'bg-red-500' },
-                { clase: 'bg-blue-500' },
-                { clase: 'bg-yellow-500' },
-                { clase: 'bg-green-500' },
-                { clase: 'bg-purple-500' },
-                { clase: 'bg-orange-500' },
-                { clase: 'bg-pink-500' },
-                { clase: 'bg-indigo-500' },
-                { clase: 'bg-teal-500' }
-            ],
+                { clase: 'bg-red-500' },{ clase: 'bg-blue-500' },{ clase: 'bg-yellow-500' },{ clase: 'bg-green-500' },{ clase: 'bg-purple-500' },
+                { clase: 'bg-orange-500' },{ clase: 'bg-pink-500' },{ clase: 'bg-indigo-500' },{ clase: 'bg-teal-500' }],
 
             secuencia: [],        // Guarda la secuencia que el jugador debe repetir
             secuenciaJugador: [], // Guarda la secuencia que hace el jugador
@@ -103,7 +95,7 @@ export default {
             this.enJuego = false
         },
 
-        // Reproduce la secuencia para el jugador
+        // Reproduce la secuencia para que el jugador la copie
 
         async reproducirSecuencia() {
             for (let color of this.secuencia) {
@@ -133,7 +125,7 @@ export default {
 
             const indiceActual = this.secuenciaJugador.length - 1
             if (this.secuenciaJugador[indiceActual] !== this.secuencia[indiceActual]) {
-                alert('Juego terminado, puntuación final: ' + this.puntuacion)
+                alert('Juego terminado, puntuación: ' + this.puntuacion)
                 this.juegoIniciado = false
                 return
             }

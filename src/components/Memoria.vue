@@ -55,7 +55,7 @@ export default {
             cartasVisibles: [],   // Índices de las cartas actualmente activas (máximo 2)
             paresEncontrados: [], // Índices de las cartas que ya fueron encontradas en par
             intentos: 0,          // Contador de intentos
-            emojis: ['🐶', '🐱', '🐲', '🐹', '🐰', '🦊', '🐻', '🐼', '🐎']
+            emojis: ['🐶', '🐱', '🐲', '🐹', '🐰', '🦊', '🐻', '🐼', '🐎','🐶', '🐱', '🐲', '🐹', '🐰', '🦊', '🐻', '🐼', '🐎']
         }
     },
 
@@ -72,7 +72,7 @@ export default {
         // Se mezclan y duplican los emojis
 
         iniciarJuego() {
-            this.cartas = [...this.emojis, ...this.emojis]
+            this.cartas = [...this.emojis]
                 .map((emoji) => ({
                     emoji,
                     visible: false
@@ -118,12 +118,12 @@ export default {
 
                     if (this.paresEncontrados.length === this.cartas.length) {
                         setTimeout(() => {
-                            alert('Completaste el juego en ' + this.intentos + ' intentos')
+                            alert('Completaste el juego!')
                         }, 500)
                     }
                 } else {
 
-                    // Si no coinciden, espera 1 segundo y devuelve las cartas a su estado visible=false
+                    // Si no coinciden, se espera 1 segundo y devuelve las cartas a su estado visible=false
 
                     await new Promise(resolve => setTimeout(resolve, 1000))
                     this.cartas[primerIndice].visible = false
@@ -133,7 +133,7 @@ export default {
             }
         },
 
-        // Restablece el juego
+        // Reiniciar el juego
 
         reiniciarJuego() {
             this.cartasVisibles = []

@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <!-- Resultados finales (se muestra una vez que "juegoTerminado" sea true)-->
+    <!-- Resultados finales (se muestra este div una vez que "juegoTerminado" sea true)-->
 
     <div v-else class="bg-white p-6 rounded-lg shadow-md">
       <h3 class="text-2xl font-bold mb-4 text-center">Juego terminado!</h3>
@@ -67,33 +67,30 @@
         <!-- Barra de progreso -->
 
         <div class="h-4 bg-gray-200 rounded-full overflow-hidden">
-          <div 
-            class="h-full transition-all duration-500"
-            :class="[
-              respuestasCorrectas / preguntas.length >= 0.8 ? 'bg-green-500' :
-              respuestasCorrectas / preguntas.length >= 0.6 ? 'bg-yellow-500' : 
-              'bg-red-500'
-            ]"
-            :style="{ width: `${(respuestasCorrectas / preguntas.length * 100)}%` }"
+          <div class="h-full transition-all duration-500"
+              
+              :class="[respuestasCorrectas / preguntas.length >= 0.8 ? 'bg-green-500' :
+              respuestasCorrectas / preguntas.length >= 0.6 ? 'bg-yellow-500' : 'bg-red-500']"
+
+              :style="{ width: `${(respuestasCorrectas / preguntas.length * 100)}%` }"
+
           ></div>
         </div>
 
         <!-- Botón para reiniciar el juego -->
 
-        <button
-          @click="reiniciarJuego"
-          class="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600"
-        >
+        <button @click="reiniciarJuego" class="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600">
           Reiniciar
         </button>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
 
-// Importamos las preguntas desde el json (50 preguntas con sus 3 respuestas c/una)
+// Importamos las preguntas del json (50 preguntas con sus 3 respuestas c/una)
 
 import Data from '../assets/data/preguntas-trivia.json'
 
@@ -135,7 +132,7 @@ export default {
       }
     },
 
-    // Verifica si es la última pregunta
+    // Verifica si es la última pregunta, retorna un verdadero o falso
 
     esUltimaPregunta() {
       return this.preguntaActual === this.preguntas.length - 1
@@ -150,9 +147,7 @@ export default {
 
       // Selecciona 10 preguntas aleatorias del json de preguntas
 
-      this.preguntas = [...Data.preguntas]
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 10)
+      this.preguntas = [...Data.preguntas].sort(() => Math.random() - 0.5).slice(0, 10)
       
       // Reinicia todas las variables del juego
 

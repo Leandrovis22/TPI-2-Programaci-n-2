@@ -1,15 +1,25 @@
 <template>
   <div class="max-w-4xl mx-auto p-4">
-    <h1 class="text-3xl font-bold mb-6 text-center mt-6">Proyecto Mini-Juegos</h1>
-    
+    <h1 class="text-3xl font-bold mb-6 text-center mt-6">Vue Mini-Juegos</h1>
+
     <div class="flex gap-4 mb-6 justify-center">
       <button 
-        v-for="juego in juegos" 
-        :key="juego.id"
-        @click="juegoActual = juego.id"
+        @click="juegoActual = 'simon'"
         class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
       >
-        {{ juego.nombre }}
+        Simon
+      </button>
+      <button 
+        @click="juegoActual = 'memoria'"
+        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        Memoria
+      </button>
+      <button 
+        @click="juegoActual = 'trivia'"
+        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        Trivia
       </button>
     </div>
 
@@ -30,12 +40,7 @@ export default {
   },
   data() {
     return {
-      juegoActual: 'simon',
-      juegos: [
-        { id: 'simon', nombre: 'Simon' },
-        { id: 'memoria', nombre: 'Memoria' },
-        { id: 'trivia', nombre: 'Trivia' }
-      ]
+      juegoActual: 'simon'
     }
   },
   computed: {

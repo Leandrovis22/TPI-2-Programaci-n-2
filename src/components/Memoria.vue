@@ -51,7 +51,7 @@ export default {
 
     data() {
         return {
-            cartas: [],           // Array de objetos carta con propiedades emoji y visible
+            cartas: [],           // Arreglo de objetos carta con propiedades emoji y visible
             cartasVisibles: [],   // Índices de las cartas actualmente activas (máximo 2)
             paresEncontrados: [], // Índices de las cartas que ya fueron encontradas en par
             intentos: 0,          // Contador de intentos
@@ -72,15 +72,13 @@ export default {
         // Se mezclan y duplican los emojis
 
         iniciarJuego() {
-            this.cartas = [...this.emojis]
-                .map((emoji) => ({
-                    emoji,
-                    visible: false
-                }))
-                .sort(() => Math.random() - 0.5)
+            this.cartas = this.emojis
+                .map(emoji => ({ emoji, visible: false }))
+                .sort(() => 0.5 - Math.random())
         },
 
         // Control de lógica para mostrar las cartas y ver coincidencias
+        // mostrarCarta() se ejecuta cada vez que el usuario hace clic en una carta, indice es el indice de la carta seleccionada
 
         async mostrarCarta(indice) {
 
@@ -94,7 +92,7 @@ export default {
                 return
             }
 
-            // Selecciona la carta y la agrega al array de cartas visibles (solo hay 2 a la vez)
+            // Selecciona la carta y la agrega al arreglo de cartas visibles (solo hay 2 a la vez)
 
             this.cartas[indice].visible = true
             this.cartasVisibles.push(indice)
@@ -117,9 +115,7 @@ export default {
                     // Verifica si el juego terminó
 
                     if (this.paresEncontrados.length === this.cartas.length) {
-                        setTimeout(() => {
-                            alert('Completaste el juego!')
-                        }, 500)
+                        setTimeout(() => {alert('Completaste el juego!')}, 500)
                     }
                 } else {
 

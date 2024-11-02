@@ -41,7 +41,7 @@ export default {
     data() {
         return {
 
-            // Array de colores, esto define la cantidad de botones en el .map del template
+            // Arreglo de colores, esto define la cantidad de botones en el .map del template
 
             colores: [
                 { clase: 'bg-red-500' },{ clase: 'bg-blue-500' },{ clase: 'bg-yellow-500' },{ clase: 'bg-green-500' },{ clase: 'bg-purple-500' },

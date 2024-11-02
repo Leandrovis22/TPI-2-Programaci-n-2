@@ -90,7 +90,7 @@ npm run build
 ## 🤝 Contribuciones
 
 1. Pide un fork del repositorio
-2. Crea tu rama de características (`git checkout -b feature/CaracteristicaIncreible`)
-3. Realiza commit de tus cambios (`git commit -m 'Agrega alguna CaracteristicaIncreible'`)
-4. Realiza push a la rama (`git push origin feature/CaracteristicaIncreible`)
+2. Crea tu rama de características (`git checkout -b feature/Caracteristica`)
+3. Realiza commit de tus cambios (`git commit -m 'Agrega alguna Caracteristica'`)
+4. Realiza push a la rama (`git push origin feature/Caracteristica`)
 5. Abre un Pull Request

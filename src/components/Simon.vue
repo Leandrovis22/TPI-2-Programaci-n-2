@@ -87,9 +87,9 @@ export default {
             this.enJuego = true
             this.turnoJugador = false
 
-            // Elige un color random y lo agrega a la secuencia que debera seguir el jugador
+            // Elige un color random del 1 al 9 y lo agrega a la secuencia que debera seguir el jugador
 
-            this.secuencia.push(Math.floor(Math.random() * 4))
+            this.secuencia.push(Math.floor(Math.random() * 9))
             await this.reproducirSecuencia()
             this.turnoJugador = true
             this.enJuego = false

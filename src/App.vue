@@ -15,12 +15,6 @@
       >
         Memoria
       </button>
-      <button 
-        @click="juegoActual = 'trivia'"
-        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-      >
-        Trivia
-      </button>
     </div>
 
     <component :is="componenteActual"></component>
@@ -30,13 +24,11 @@
 <script>
 import Simon from './components/Simon.vue'
 import Memoria from './components/Memoria.vue'
-import Trivia from './components/Trivia.vue'
 
 export default {
   components: {
     Simon,
-    Memoria,
-    Trivia
+    Memoria
   },
   data() {
     return {
@@ -47,8 +39,7 @@ export default {
     componenteActual() {
       const componentes = {
         simon: Simon,
-        memoria: Memoria,
-        trivia: Trivia
+        memoria: Memoria
       }
       return componentes[this.juegoActual]
     }
